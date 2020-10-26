@@ -3,6 +3,6 @@ This repository contains the projects developed during Udacity's Nanodegree - An
 
 # Organization
 
-All projects are developed in a separate branch, thus maintaining your commit history separately. Once completed, they are sent to the all-projects branch via pull request.
+All projects are developed in a separate branch from the empty branch, thus maintaining the history of commits for each project separately. When a project are completed your branch is sent via pull request to the all-projects branch.
 
 Every project has its README.md file always in the project's root directory.
