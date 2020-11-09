@@ -38,7 +38,6 @@ class GameWonFragment : Fragment() {
 
         setHasOptionsMenu(true)
         val args = GameWonFragmentArgs.fromBundle(requireArguments())
-        Toast.makeText(context, "NumCorrect: ${args.numCorrect} NumQuestions: ${args.numQuestions}", Toast.LENGTH_LONG).show()
         return binding.root
     }
 
