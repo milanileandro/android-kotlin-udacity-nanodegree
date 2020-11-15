@@ -44,6 +44,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="8dp"
             android:fontFamily="sans-serif"
+            android:text="@{scoreViewModel.score.toString()}"
             android:textColor="@color/black_text_color"
             android:textSize="34sp"
             android:textStyle="normal"
