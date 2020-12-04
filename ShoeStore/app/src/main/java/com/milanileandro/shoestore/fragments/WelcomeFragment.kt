@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.milanileandro.shoestore.R
-import com.milanileandro.shoestore.databinding.FragmentLoginBinding
+import com.milanileandro.shoestore.databinding.FragmentWelcomeBinding
 
 class WelcomeFragment : Fragment() {
     override fun onCreateView(
@@ -16,7 +16,7 @@ class WelcomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val binding = DataBindingUtil.inflate<FragmentLoginBinding>(
+        val binding = DataBindingUtil.inflate<FragmentWelcomeBinding>(
             inflater,
             R.layout.fragment_welcome, container, false
         )
