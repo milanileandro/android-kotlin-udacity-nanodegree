@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.setPadding
 import androidx.databinding.DataBindingUtil
@@ -55,7 +56,7 @@ class ShoesFragment : Fragment() {
                         "\nSize: ${shoe.size} " +
                         "\nDescription: ${shoe.description}"
             )
-        textViewShoe.setTextColor(resources.getColor(R.color.purple_700))
+        textViewShoe.setTextColor(ContextCompat.getColor(requireContext(), R.color.purple_500))
         textViewShoe.setPadding(64)
         textViewShoe.typeface = ResourcesCompat.getFont(requireContext(), R.font.roboto_black)
         linearLayoutShoesList.addView(textViewShoe)
