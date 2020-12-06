@@ -9,4 +9,5 @@
     <string name="instructions">Instructions</string>
     <string name="shoe_list">Shoe list</string>
     <string name="instructions_description">The next screen it will be possible view the list of shoes and also add a new shoe. For more details about a shoe, click on the item in the list.\nHave fun clicking the button below.</string>
+    <string name="action_button_add_shoe">Action button add shoe</string>
 </resources>
