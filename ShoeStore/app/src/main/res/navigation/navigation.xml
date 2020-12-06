@@ -29,7 +29,7 @@
         android:label="fragment_instructions"
         tools:layout="@layout/fragment_instructions">
         <action
-            android:id="@+id/action_instructionsFragment_to_shoesFragment"
+            android:id="@+id/toShoesFragment"
             app:destination="@id/shoesFragment" />
     </fragment>
     <fragment
