@@ -41,12 +41,19 @@
         android:label="Shoe list"
         tools:layout="@layout/fragment_shoes_list">
         <action
-            android:id="@+id/action_shoesFragment_to_shoeDetailsFragment"
+            android:id="@+id/toAddShoeFragment"
             app:destination="@id/addShoeFragment" />
     </fragment>
     <fragment
         android:id="@+id/addShoeFragment"
         android:name="com.milanileandro.shoestore.fragment.AddShoeFragment"
         android:label="Add shoe"
-        tools:layout="@layout/fragment_add_shoe" />
+        tools:layout="@layout/fragment_add_shoe">
+        <action
+            android:id="@+id/toShoesFragment"
+            app:destination="@id/shoesFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/addShoeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

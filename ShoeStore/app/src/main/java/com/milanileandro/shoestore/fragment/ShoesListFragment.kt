@@ -11,6 +11,7 @@ import androidx.core.view.setPadding
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.milanileandro.shoestore.R
 import com.milanileandro.shoestore.databinding.FragmentShoesListBinding
 import com.milanileandro.shoestore.model.Shoe
@@ -27,24 +28,19 @@ class ShoesListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val binding = DataBindingUtil.inflate<FragmentShoesListBinding>(
-            inflater,
-            R.layout.fragment_shoes_list, container, false
-        )
-
         viewModel = ViewModelProvider(this).get(ShoesViewModel::class.java)
 
-        return binding.root
+        return DataBindingUtil.inflate<FragmentShoesListBinding>(
+            inflater,
+            R.layout.fragment_shoes_list, container, false
+        ).root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.shoesList.observe(viewLifecycleOwner, { shoeList ->
-            shoeList?.iterator()?.forEach { shoe ->
-                addNewItemOnLayout(shoe)
-            }
-        })
+        setObservers()
+        setListeners()
     }
 
     private fun addNewItemOnLayout(shoe: Shoe) {
@@ -60,5 +56,19 @@ class ShoesListFragment : Fragment() {
         textViewShoe.setPadding(64)
         textViewShoe.typeface = ResourcesCompat.getFont(requireContext(), R.font.roboto_black)
         linearLayoutShoesList.addView(textViewShoe)
+    }
+
+    private fun setListeners() {
+        actionButtonAddShoe.setOnClickListener {
+            findNavController().navigate(ShoesListFragmentDirections.toAddShoeFragment())
+        }
+    }
+
+    private fun setObservers() {
+        viewModel.shoesList.observe(viewLifecycleOwner, { shoeList ->
+            shoeList?.iterator()?.forEach { shoe ->
+                addNewItemOnLayout(shoe)
+            }
+        })
     }
 }
