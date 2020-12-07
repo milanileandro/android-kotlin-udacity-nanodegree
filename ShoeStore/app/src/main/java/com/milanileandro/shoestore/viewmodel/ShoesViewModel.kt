@@ -2,7 +2,7 @@ package com.milanileandro.shoestore.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.milanileandro.shoestore.models.Shoe
+import com.milanileandro.shoestore.model.Shoe
 
 class ShoesViewModel : ViewModel() {
 

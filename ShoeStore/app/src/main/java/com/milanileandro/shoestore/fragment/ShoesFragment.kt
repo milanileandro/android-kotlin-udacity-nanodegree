@@ -1,4 +1,4 @@
-package com.milanileandro.shoestore.fragments
+package com.milanileandro.shoestore.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.milanileandro.shoestore.R
 import com.milanileandro.shoestore.databinding.FragmentShoesBinding
-import com.milanileandro.shoestore.models.Shoe
+import com.milanileandro.shoestore.model.Shoe
 import com.milanileandro.shoestore.viewmodel.ShoesViewModel
 import kotlinx.android.synthetic.main.fragment_shoes.*
 

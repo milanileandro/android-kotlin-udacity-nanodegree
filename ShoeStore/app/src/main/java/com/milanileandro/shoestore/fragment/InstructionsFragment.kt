@@ -1,4 +1,4 @@
-package com.milanileandro.shoestore.fragments
+package com.milanileandro.shoestore.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

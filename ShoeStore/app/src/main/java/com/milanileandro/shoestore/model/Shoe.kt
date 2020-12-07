@@ -1,4 +1,4 @@
-package com.milanileandro.shoestore.models
+package com.milanileandro.shoestore.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
