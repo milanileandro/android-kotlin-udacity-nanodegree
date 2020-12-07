@@ -16,7 +16,7 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         val binding = DataBindingUtil.inflate<FragmentLoginBinding>(
             inflater,

@@ -26,7 +26,7 @@ class ShoesListFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         viewModel = ViewModelProvider(this).get(ShoesViewModel::class.java)
 

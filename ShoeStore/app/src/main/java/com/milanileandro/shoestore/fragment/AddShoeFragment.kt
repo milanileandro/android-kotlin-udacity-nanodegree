@@ -16,7 +16,7 @@ class AddShoeFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         return DataBindingUtil.inflate<FragmentAddShoeBinding>(
             inflater,
