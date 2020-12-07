@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".fragment.ShoesFragment">
+    tools:context=".fragment.ShoesListFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -27,6 +28,6 @@
             android:layout_gravity="end|bottom"
             android:layout_margin="16dp"
             android:contentDescription="@string/action_button_add_shoe"
-            android:src="@drawable/ic_add" />
+            app:srcCompat="@drawable/ic_add" />
     </RelativeLayout>
 </layout>

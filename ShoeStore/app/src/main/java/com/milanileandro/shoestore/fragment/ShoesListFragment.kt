@@ -12,12 +12,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.milanileandro.shoestore.R
-import com.milanileandro.shoestore.databinding.FragmentShoesBinding
+import com.milanileandro.shoestore.databinding.FragmentShoesListBinding
 import com.milanileandro.shoestore.model.Shoe
 import com.milanileandro.shoestore.viewmodel.ShoesViewModel
-import kotlinx.android.synthetic.main.fragment_shoes.*
+import kotlinx.android.synthetic.main.fragment_shoes_list.*
 
-class ShoesFragment : Fragment() {
+class ShoesListFragment : Fragment() {
 
     private lateinit var viewModel: ShoesViewModel
 
@@ -27,9 +27,9 @@ class ShoesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val binding = DataBindingUtil.inflate<FragmentShoesBinding>(
+        val binding = DataBindingUtil.inflate<FragmentShoesListBinding>(
             inflater,
-            R.layout.fragment_shoes, container, false
+            R.layout.fragment_shoes_list, container, false
         )
 
         viewModel = ViewModelProvider(this).get(ShoesViewModel::class.java)
