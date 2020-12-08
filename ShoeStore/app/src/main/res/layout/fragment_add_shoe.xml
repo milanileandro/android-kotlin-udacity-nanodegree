@@ -4,6 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".fragment.AddShoeFragment">
 
+    <data>
+
+        <import type="com.milanileandro.shoestore.Converter" />
+
+        <variable
+            name="shoeModel"
+            type="com.milanileandro.shoestore.model.Shoe" />
+
+        <variable
+            name="shoeViewModel"
+            type="com.milanileandro.shoestore.viewmodel.ShoesViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -29,6 +42,7 @@
             android:layout_width="0dp"
             android:layout_height="47dp"
             android:layout_marginStart="8dp"
+            android:onClick="@{() -> shoeViewModel.addShoe(shoeModel)}"
             android:text="@string/save"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -52,9 +66,11 @@
             tools:layout_editor_absoluteX="16dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextShoeName"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:inputType="text" />
+                android:inputType="text"
+                android:text="@={shoeModel.name}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -71,9 +87,11 @@
             tools:layout_editor_absoluteX="16dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextCompany"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:inputType="text" />
+                android:inputType="text"
+                android:text="@={shoeModel.company}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -90,9 +108,11 @@
             tools:layout_editor_absoluteX="16dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextShoeSize"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:inputType="numberDecimal" />
+                android:inputType="numberDecimal"
+                android:text="@={Converter.doubleToString(shoeModel.size)}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -109,9 +129,11 @@
             tools:layout_editor_absoluteX="16dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextDescription"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:inputType="textImeMultiLine" />
+                android:inputType="textImeMultiLine"
+                android:text="@={shoeModel.description}" />
         </com.google.android.material.textfield.TextInputLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

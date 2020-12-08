@@ -1,5 +1,6 @@
 package com.milanileandro.shoestore.viewmodel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.milanileandro.shoestore.model.Shoe
@@ -10,12 +11,24 @@ class ShoesViewModel : ViewModel() {
     val shoesList: MutableLiveData<List<Shoe>>
         get() = _shoesList
 
+    var errorShoeName = MutableLiveData<Boolean>()
+    var errorCompany = MutableLiveData<Boolean>()
+    var errorShoeSize = MutableLiveData<Boolean>()
+    var errorDescription = MutableLiveData<Boolean>()
+
+    private var _eventAddShoe = MutableLiveData<Boolean>()
+    val eventAddShoe: LiveData<Boolean>
+        get() = _eventAddShoe
+
     init {
         loadInitialShoeList()
     }
 
     fun addShoe(shoe: Shoe) {
-        _shoesList.value?.toMutableList()?.add(shoe)
+        if (isValidShoe(shoe)) {
+            _shoesList.value = _shoesList.value?.plus(shoe)
+            _eventAddShoe.value = true
+        }
     }
 
     private fun loadInitialShoeList() {
@@ -65,5 +78,34 @@ class ShoesViewModel : ViewModel() {
                 )
             )
         }
+    }
+
+    private fun isValidShoe(shoe: Shoe): Boolean {
+        var result = true
+        if (shoe.name.isEmpty()) {
+            errorShoeName.value = true
+            result = false
+        }
+        if (shoe.company.isEmpty()) {
+            errorCompany.value = true
+            result = false
+        }
+        if (shoe.size == null) {
+            errorShoeSize.value = true
+            result = false
+        }
+        if (shoe.description.isEmpty()) {
+            errorDescription.value = true
+            result = false
+        }
+        return result
+    }
+
+    fun onAddShoeFinished() {
+        _eventAddShoe.value = false
+        errorShoeName.value = false
+        errorCompany.value = false
+        errorShoeSize.value = false
+        errorDescription.value = false
     }
 }

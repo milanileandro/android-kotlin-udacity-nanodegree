@@ -6,22 +6,34 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.milanileandro.shoestore.R
 import com.milanileandro.shoestore.databinding.FragmentAddShoeBinding
+import com.milanileandro.shoestore.model.Shoe
+import com.milanileandro.shoestore.viewmodel.ShoesViewModel
 import kotlinx.android.synthetic.main.fragment_add_shoe.*
 
 class AddShoeFragment : Fragment() {
+
+    private lateinit var binding: FragmentAddShoeBinding
+    private lateinit var shoesViewModel: ShoesViewModel
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
 
-        return DataBindingUtil.inflate<FragmentAddShoeBinding>(
-            inflater,
-            R.layout.fragment_add_shoe, container, false
-        ).root
+        shoesViewModel = ViewModelProvider(requireActivity()).get(ShoesViewModel::class.java)
+        binding = DataBindingUtil.inflate(
+            inflater, R.layout.fragment_add_shoe, container,
+            false
+        )
+
+        binding.shoeViewModel = shoesViewModel
+        binding.shoeModel = Shoe("", null, "", "")
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -32,6 +44,36 @@ class AddShoeFragment : Fragment() {
     private fun setListeners() {
         buttonCancel.setOnClickListener {
             findNavController().navigate(AddShoeFragmentDirections.toShoesFragment())
+            shoesViewModel.onAddShoeFinished()
         }
+
+        shoesViewModel.eventAddShoe.observe(viewLifecycleOwner, { shoeAdded ->
+            if (shoeAdded) {
+                findNavController().navigate(AddShoeFragmentDirections.toShoesFragment())
+                shoesViewModel.onAddShoeFinished()
+            }
+        })
+
+
+        /*
+           The logic below was necessary because to adding app:errorEnabled into TextInputLayout
+           (fragment_add_shoe.xml file) it didn't work
+         */
+        shoesViewModel.errorShoeName.observe(viewLifecycleOwner, { hasError ->
+            if (hasError) editTextShoeName.error = "Enter the shoe name"
+        })
+
+        shoesViewModel.errorDescription.observe(viewLifecycleOwner, { hasError ->
+            if (hasError) editTextDescription.error = "Enter the shoe description"
+        })
+
+        shoesViewModel.errorShoeSize.observe(viewLifecycleOwner, { hasError ->
+            if (hasError) editTextShoeSize.error = "Enter the shoe size"
+        })
+
+        shoesViewModel.errorCompany.observe(viewLifecycleOwner, { hasError ->
+            if (hasError) editTextCompany.error = "Enter the company name\""
+        })
+
     }
 }

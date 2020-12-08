@@ -28,7 +28,7 @@ class ShoesListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        viewModel = ViewModelProvider(this).get(ShoesViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity()).get(ShoesViewModel::class.java)
 
         return DataBindingUtil.inflate<FragmentShoesListBinding>(
             inflater,
