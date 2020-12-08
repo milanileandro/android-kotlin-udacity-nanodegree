@@ -9,16 +9,18 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.milanileandro.shoestore.R
 import com.milanileandro.shoestore.databinding.FragmentInstructionsBinding
-import kotlinx.android.synthetic.main.fragment_instructions.*
 
 class InstructionsFragment : Fragment() {
+
+    private lateinit var binding: FragmentInstructionsBinding
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
 
-        val binding = DataBindingUtil.inflate<FragmentInstructionsBinding>(
+        binding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_instructions, container, false
         )
@@ -29,7 +31,7 @@ class InstructionsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        buttonShoeList.setOnClickListener {
+        binding.buttonShoeList.setOnClickListener {
             findNavController().navigate(InstructionsFragmentDirections.toShoesFragment())
         }
     }

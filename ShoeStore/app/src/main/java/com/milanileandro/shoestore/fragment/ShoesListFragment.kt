@@ -16,11 +16,11 @@ import com.milanileandro.shoestore.R
 import com.milanileandro.shoestore.databinding.FragmentShoesListBinding
 import com.milanileandro.shoestore.model.Shoe
 import com.milanileandro.shoestore.viewmodel.ShoesViewModel
-import kotlinx.android.synthetic.main.fragment_shoes_list.*
 
 class ShoesListFragment : Fragment() {
 
     private lateinit var viewModel: ShoesViewModel
+    private lateinit var binding: FragmentShoesListBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,10 +30,12 @@ class ShoesListFragment : Fragment() {
 
         viewModel = ViewModelProvider(requireActivity()).get(ShoesViewModel::class.java)
 
-        return DataBindingUtil.inflate<FragmentShoesListBinding>(
+        binding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_shoes_list, container, false
-        ).root
+        )
+
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -55,11 +57,11 @@ class ShoesListFragment : Fragment() {
         textViewShoe.setTextColor(ContextCompat.getColor(requireContext(), R.color.purple_500))
         textViewShoe.setPadding(64)
         textViewShoe.typeface = ResourcesCompat.getFont(requireContext(), R.font.roboto_black)
-        linearLayoutShoesList.addView(textViewShoe)
+        binding.linearLayoutShoesList.addView(textViewShoe)
     }
 
     private fun setListeners() {
-        actionButtonAddShoe.setOnClickListener {
+        binding.actionButtonAddShoe.setOnClickListener {
             findNavController().navigate(ShoesListFragmentDirections.toAddShoeFragment())
         }
     }

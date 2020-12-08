@@ -9,16 +9,18 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.milanileandro.shoestore.R
 import com.milanileandro.shoestore.databinding.FragmentWelcomeBinding
-import kotlinx.android.synthetic.main.fragment_welcome.*
 
 class WelcomeFragment : Fragment() {
+
+    private lateinit var binding: FragmentWelcomeBinding
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
 
-        val binding = DataBindingUtil.inflate<FragmentWelcomeBinding>(
+        binding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_welcome, container, false
         )
@@ -29,7 +31,7 @@ class WelcomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        buttonInstructions.setOnClickListener {
+        binding.buttonInstructions.setOnClickListener {
             findNavController().navigate(WelcomeFragmentDirections.toInstructionsFragment())
         }
     }

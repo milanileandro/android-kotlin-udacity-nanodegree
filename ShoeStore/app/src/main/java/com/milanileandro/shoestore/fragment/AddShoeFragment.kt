@@ -12,7 +12,6 @@ import com.milanileandro.shoestore.R
 import com.milanileandro.shoestore.databinding.FragmentAddShoeBinding
 import com.milanileandro.shoestore.model.Shoe
 import com.milanileandro.shoestore.viewmodel.ShoesViewModel
-import kotlinx.android.synthetic.main.fragment_add_shoe.*
 
 class AddShoeFragment : Fragment() {
 
@@ -42,7 +41,7 @@ class AddShoeFragment : Fragment() {
     }
 
     private fun setListeners() {
-        buttonCancel.setOnClickListener {
+        binding.buttonCancel.setOnClickListener {
             findNavController().navigate(AddShoeFragmentDirections.toShoesFragment())
             shoesViewModel.onAddShoeFinished()
         }
@@ -60,19 +59,19 @@ class AddShoeFragment : Fragment() {
            (fragment_add_shoe.xml file) it didn't work
          */
         shoesViewModel.errorShoeName.observe(viewLifecycleOwner, { hasError ->
-            if (hasError) editTextShoeName.error = "Enter the shoe name"
+            if (hasError) binding.editTextShoeName.error = "Enter the shoe name"
         })
 
         shoesViewModel.errorDescription.observe(viewLifecycleOwner, { hasError ->
-            if (hasError) editTextDescription.error = "Enter the shoe description"
+            if (hasError) binding.editTextDescription.error = "Enter the shoe description"
         })
 
         shoesViewModel.errorShoeSize.observe(viewLifecycleOwner, { hasError ->
-            if (hasError) editTextShoeSize.error = "Enter the shoe size"
+            if (hasError) binding.editTextShoeSize.error = "Enter the shoe size"
         })
 
         shoesViewModel.errorCompany.observe(viewLifecycleOwner, { hasError ->
-            if (hasError) editTextCompany.error = "Enter the company name\""
+            if (hasError) binding.editTextCompany.error = "Enter the company name\""
         })
 
     }
