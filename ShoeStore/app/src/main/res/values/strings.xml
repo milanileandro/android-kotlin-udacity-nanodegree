@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Shoe Store Inventory</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="login">Login</string>
+    <string name="create_account">Create account</string>
+    <string name="welcome_to">Welcome to</string>
+    <string name="shoe_store_app">Shoe Store app</string>
+    <string name="instructions">Instructions</string>
+    <string name="shoe_list">Shoe list</string>
+    <string name="instructions_description">The next screen it will be possible view the list of shoes and also add a new shoe. For more details about a shoe, click on the item in the list.\nHave fun clicking the button below.</string>
+    <string name="action_button_add_shoe">Action button add shoe</string>
+    <string name="logout">Logout</string>
+    <string name="menu">Menu</string>
+    <string name="shoe_name">Shoe name</string>
+    <string name="company">Company</string>
+    <string name="shoe_size">Shoe size</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="description">Description</string>
+</resources>
