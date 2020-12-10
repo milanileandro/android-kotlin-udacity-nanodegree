@@ -21,6 +21,6 @@ For this project there is a restriction, not to use ListView or RecyclerView. Th
 
 # Screenshots
 
-<img src="screenshots/screen1.jpj" width="300"/> <img src="screenshots/screen2.jpj" width="300"/> <img src="screenshots/screen3.jpj" width="300"/> 
-<img src="screenshots/screen4.jpj" width="300"/> <img src="screenshots/screen5.jpj" width="300"/> <img src="screenshots/screen6.jpj" width="300"/> 
-<img src="screenshots/screen7.jpj" width="300"/> 
+<img src="screenshots/screen1.jpg" width="300"/> <img src="screenshots/screen2.jpg" width="300"/> <img src="screenshots/screen3.jpg" width="300"/> 
+<img src="screenshots/screen4.jpg" width="300"/> <img src="screenshots/screen5.jpg" width="300"/> <img src="screenshots/screen6.jpg" width="300"/> 
+<img src="screenshots/screen7.jpg" width="300"/> 
